@@ -1,1 +1,22 @@
 @import "tailwindcss";
+
+@theme {
+  --font-cormorant: "Cormorant Garamond", Georgia, serif;
+  --font-inter: Inter, sans-serif;
+}
+
+@font-face {
+  font-family: Inter;
+  src: url('/Font/Inter/Inter-VariableFont_opsz,wght.ttf') format('truetype');
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Cormorant Garamond';
+  src: url('/Font/Cormorant_Garamond/CormorantGaramond-Medium.ttf') format('truetype');
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+}

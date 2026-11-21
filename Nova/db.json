@@ -1,7 +1,13 @@
 {
   "home": {
     "id": "home",
-    "heroTitle": "More than clothes. Made for your every day.",
+    "hero": {
+      "title": "More than clothes.",
+      "subtitle": "Made for your everyday.",
+      "description": "Discover modern, minimal pieces designed to move with you, feel comfortable, and become part of your everyday story.",
+      "image": "/Images/Home/hero-model.png",
+      "imageAlt": "Model wearing a neutral everyday outfit"
+    },
     "featuredProductIds": [1, 2, 7, 8],
     "collectionIds": ["tops", "dresses", "bottoms", "outerwear"]
   },

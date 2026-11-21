@@ -34,6 +34,11 @@ The API is available at `http://localhost:3001`:
 - `GET /home`
 - `GET /cartItems`
 
+The home response includes the hero's title, subtitle, description, image path,
+and alt text. The Home page loads this content from JSON Server and provides a
+retry action if the request fails. Its "Explore Collections" and "Shop Now"
+buttons are static links to `/collection` and `/shop`.
+
 JSON Server also supports standard `POST`, `PUT`, `PATCH`, and `DELETE`
 operations. Changes made through the API are saved back to `db.json`.
 
