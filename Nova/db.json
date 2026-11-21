@@ -1,0 +1,267 @@
+{
+  "home": {
+    "id": "home",
+    "heroTitle": "More than clothes. Made for your every day.",
+    "featuredProductIds": [1, 2, 7, 8],
+    "collectionIds": ["tops", "dresses", "bottoms", "outerwear"]
+  },
+  "products": [
+    {
+      "id": 1,
+      "name": "Soft Knit Sweater",
+      "category": "Knitwear",
+      "price": 48,
+      "currency": "USD",
+      "sizes": ["S", "L", "XL"],
+      "colors": ["#F3EEE6", "#B76E79", "#292623"],
+      "description": "A lightweight knit sweater with a soft feel and an easy everyday fit.",
+      "comments": [
+        { "name": "Mia", "rating": 5, "text": "So soft and comfortable. The relaxed fit is just right." },
+        { "name": "Nora", "rating": 4, "text": "Lovely knit and easy to layer. I would happily order another color." }
+      ],
+      "featured": true
+    },
+    {
+      "id": 2,
+      "name": "Soft Knit Cami",
+      "category": "Tops",
+      "price": 72,
+      "currency": "USD",
+      "sizes": ["XS", "S", "L"],
+      "colors": ["#E8B8BE", "#F7EFE5", "#8C5D60"],
+      "description": "A soft knit camisole designed for comfortable layering or wearing on its own.",
+      "comments": [
+        { "name": "Ella", "rating": 5, "text": "The fabric feels lovely and it works with so many outfits." },
+        { "name": "Zoe", "rating": 4, "text": "Great quality and a flattering shape. The color is beautiful." }
+      ],
+      "featured": true
+    },
+    {
+      "id": 3,
+      "name": "Linen Relaxed Shirt",
+      "category": "Shirts",
+      "price": 72,
+      "currency": "USD",
+      "sizes": ["S", "L", "XL", "2XL"],
+      "colors": ["#F1EBDD", "#BC8B83", "#6C7A89"],
+      "description": "A breathable linen shirt with a relaxed silhouette for effortless everyday wear.",
+      "comments": [
+        { "name": "Amelia", "rating": 5, "text": "Light, comfortable, and easy to style. It has become a favorite." },
+        { "name": "Lily", "rating": 4, "text": "A lovely relaxed shirt with a nice lightweight feel." }
+      ],
+      "featured": false
+    },
+    {
+      "id": 4,
+      "name": "Linen Tailored Blazer",
+      "category": "Outerwear",
+      "price": 72,
+      "currency": "USD",
+      "sizes": ["XS", "L", "XL"],
+      "colors": ["#E6D7C6", "#8B7364", "#2E3340"],
+      "description": "A tailored linen blazer that adds a polished layer to casual and formal looks.",
+      "comments": [
+        { "name": "Grace", "rating": 5, "text": "The cut looks polished while still feeling comfortable." },
+        { "name": "Ruby", "rating": 4, "text": "Beautiful lightweight layer. It pairs well with the matching pieces." }
+      ],
+      "featured": false
+    },
+    {
+      "id": 5,
+      "name": "Linen Oversized Shirt",
+      "category": "Shirts",
+      "price": 84,
+      "currency": "USD",
+      "sizes": ["XS", "S", "XL", "2XL"],
+      "colors": ["#7C91CE", "#F3EEE6", "#B7A58B"],
+      "description": "An airy oversized linen shirt with a relaxed fit and versatile styling.",
+      "comments": [
+        { "name": "Ivy", "rating": 5, "text": "A comfortable oversized fit and a beautiful soft blue." },
+        { "name": "Chloe", "rating": 4, "text": "The fabric feels breathable and looks great tucked or loose." }
+      ],
+      "featured": false
+    },
+    {
+      "id": 6,
+      "name": "Relaxed Wide-Leg Cargo Pants",
+      "category": "Bottoms",
+      "price": 72,
+      "currency": "USD",
+      "sizes": ["S", "L", "2XL"],
+      "colors": ["#69745B", "#C8B58B", "#33302B"],
+      "description": "Relaxed wide-leg cargo pants with a comfortable fit and practical details.",
+      "comments": [
+        { "name": "Aria", "rating": 5, "text": "Comfortable all day and the wide-leg shape drapes nicely." },
+        { "name": "Maya", "rating": 4, "text": "A great casual pair of pants with useful pockets." }
+      ],
+      "featured": false
+    },
+    {
+      "id": 7,
+      "name": "Relaxed Wide-Leg Pants",
+      "category": "Bottoms",
+      "price": 56,
+      "currency": "USD",
+      "sizes": ["XS", "S", "L", "XL"],
+      "colors": ["#CDC4BE", "#E1C5B9", "#4B4745"],
+      "description": "Soft, relaxed wide-leg pants made for comfortable everyday outfits.",
+      "comments": [
+        { "name": "Sara", "rating": 5, "text": "The fit is relaxed without feeling too loose. Very comfortable." },
+        { "name": "Eva", "rating": 4, "text": "Easy to wear and the grey color goes with everything." }
+      ],
+      "featured": true
+    },
+    {
+      "id": 8,
+      "name": "Minimal Dress",
+      "category": "Dresses",
+      "price": 84,
+      "currency": "USD",
+      "sizes": ["S", "XL", "2XL"],
+      "colors": ["#F7F1E8", "#34302F", "#B88F82"],
+      "description": "A minimal, versatile dress with a clean silhouette for day-to-evening wear.",
+      "comments": [
+        { "name": "Alice", "rating": 5, "text": "Simple, elegant, and comfortable. I love how easy it is to style." },
+        { "name": "Hana", "rating": 4, "text": "Lovely material and a timeless shape." }
+      ],
+      "featured": true
+    },
+    {
+      "id": 9,
+      "name": "Ribbed Everyday Tank",
+      "category": "Tops",
+      "price": 39,
+      "currency": "USD",
+      "sizes": ["XS", "L", "2XL"],
+      "colors": ["#EFE4D9", "#7C9C81", "#242421"],
+      "description": "A fitted ribbed tank with a soft stretch and an easy everyday shape.",
+      "comments": [
+        { "name": "Leah", "rating": 5, "text": "A great basic with a soft feel and a comfortable fit." },
+        { "name": "Mila", "rating": 4, "text": "The ribbed fabric looks nice and keeps its shape." }
+      ],
+      "featured": false
+    },
+    {
+      "id": 10,
+      "name": "Floral Peplum Cami",
+      "category": "Tops",
+      "price": 49,
+      "currency": "USD",
+      "sizes": ["XS", "L", "XL", "2XL"],
+      "colors": ["#6B7EC6", "#F8E8E8", "#9A6277"],
+      "description": "A floral camisole with a gentle peplum shape for a light, feminine look.",
+      "comments": [
+        { "name": "Nina", "rating": 5, "text": "The print is lovely and the peplum shape is very flattering." },
+        { "name": "Emma", "rating": 4, "text": "A pretty top that feels comfortable and looks just like the photos." }
+      ],
+      "featured": false
+    },
+    {
+      "id": 11,
+      "name": "Soft Halter Top",
+      "category": "Tops",
+      "price": 45,
+      "currency": "USD",
+      "sizes": ["XS", "S", "2XL"],
+      "colors": ["#E8B8BE", "#6B7EC6", "#4C8078"],
+      "description": "A soft, stretchy ribbed halter top with a comfortable fit for everyday wear.",
+      "comments": [
+        { "name": "Sara", "rating": 5, "text": "The fabric is soft and stretchy without feeling thin. The halter neckline sits nicely." },
+        { "name": "Maryam", "rating": 4, "text": "Really cute and comfortable, with a lovely ribbed texture." }
+      ],
+      "details": ["Ribbed cuffs and hem", "Model is 170 cm and wears size S"],
+      "featured": true
+    },
+    {
+      "id": 12,
+      "name": "Lace Detail Cami",
+      "category": "Tops",
+      "price": 45,
+      "currency": "USD",
+      "sizes": ["L", "XL", "2XL"],
+      "colors": ["#F3EEE6", "#D98AA3", "#1C1C1C"],
+      "description": "A delicate camisole with lace detailing and a light, easy-to-layer fit.",
+      "comments": [
+        { "name": "Olivia", "rating": 5, "text": "The lace detail is beautiful and feels soft against the skin." },
+        { "name": "Freya", "rating": 4, "text": "A lovely light camisole that works well under a cardigan." }
+      ],
+      "featured": false
+    },
+    {
+      "id": 13,
+      "name": "Square Neck Tank",
+      "category": "Tops",
+      "price": 42,
+      "currency": "USD",
+      "sizes": ["XS", "S", "L", "XL", "2XL"],
+      "colors": ["#F5EEE5", "#2F3136", "#B89076"],
+      "description": "A simple tank with a flattering square neckline and soft, comfortable fabric.",
+      "comments": [
+        { "name": "Ava", "rating": 5, "text": "The neckline is so flattering and the fabric is very comfortable." },
+        { "name": "Isla", "rating": 4, "text": "A versatile staple that looks great on its own or layered." }
+      ],
+      "featured": false
+    },
+    {
+      "id": 14,
+      "name": "Off-Shoulder Knit Top",
+      "category": "Tops",
+      "price": 55,
+      "currency": "USD",
+      "sizes": ["XS", "XL"],
+      "colors": ["#CDC4BE", "#7C91CE", "#393A41"],
+      "description": "A soft knit top with an off-shoulder neckline and a comfortable, close fit.",
+      "comments": [
+        { "name": "Ella", "rating": 5, "text": "Soft knit and a lovely neckline. It feels great to wear." },
+        { "name": "Clara", "rating": 4, "text": "A flattering style and a nice lightweight knit." }
+      ],
+      "featured": false
+    }
+  ],
+  "collections": [
+    {
+      "id": "tops",
+      "name": "Tops",
+      "description": "Effortless tops for every mood, from everyday to special moments.",
+      "productIds": [9, 10, 11, 12, 13, 14]
+    },
+    {
+      "id": "dresses",
+      "name": "Dresses",
+      "productIds": [8]
+    },
+    {
+      "id": "bottoms",
+      "name": "Bottoms",
+      "productIds": [7, 6]
+    },
+    {
+      "id": "outerwear",
+      "name": "Outerwear",
+      "productIds": [4]
+    }
+  ],
+  "cartItems": [
+    {
+      "id": "cart-relaxed-wide-leg-pants",
+      "productId": 7,
+      "color": "#CDC4BE",
+      "size": "L",
+      "quantity": 1
+    },
+    {
+      "id": "cart-floral-peplum-cami",
+      "productId": 10,
+      "color": "#6B7EC6",
+      "size": "L",
+      "quantity": 1
+    },
+    {
+      "id": "cart-linen-oversized-shirt",
+      "productId": 5,
+      "color": "#7C91CE",
+      "size": "XL",
+      "quantity": 1
+    }
+  ]
+}

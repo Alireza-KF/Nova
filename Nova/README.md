@@ -13,6 +13,30 @@ npm install
 npm run dev
 ```
 
+## Fake API
+
+The root `db.json` file is the data source for the sample products, collections,
+home page picks, and cart items. Start the JSON Server API in a separate
+terminal:
+
+```bash
+npm run api
+```
+
+Each product has a numeric `id`, a description, comments (`name`, `rating`
+from 1 to 5, and `text`), one or more hex color codes, and one or more sizes
+from `XS`, `S`, `L`, `XL`, and `2XL`.
+
+The API is available at `http://localhost:3001`:
+
+- `GET /products` and `GET /products/:id`
+- `GET /collections` and `GET /collections/:id`
+- `GET /home`
+- `GET /cartItems`
+
+JSON Server also supports standard `POST`, `PUT`, `PATCH`, and `DELETE`
+operations. Changes made through the API are saved back to `db.json`.
+
 ## Pages
 
 - `/` — Home
@@ -37,6 +61,7 @@ function Example() {
 ## Available scripts
 
 - `npm run dev` — start the development server
+- `npm run api` — start the JSON Server fake API
 - `npm run build` — type-check and create a production build
 - `npm run lint` — run ESLint
 - `npm run preview` — preview the production build
