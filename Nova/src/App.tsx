@@ -13,7 +13,7 @@ function App() {
     <BrowserRouter>
       <div className="min-h-screen bg-[#F8F2EA]">
         <SiteHeader />
-        <main className="mx-auto max-w-6xl px-6 pt-[138px] pb-12 max-lg:pt-28">
+        <main className="mx-auto max-w-6xl px-6 pt-34.5 pb-12 max-lg:pt-28">
           <Routes>
             <Route element={<HomePage />} path="/" />
             <Route element={<ShopPage />} path="/shop" />
