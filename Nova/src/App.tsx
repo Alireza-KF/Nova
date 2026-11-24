@@ -11,7 +11,7 @@ import './index.css'
 function App() {
   return (
     <BrowserRouter>
-      <div className="min-h-screen bg-[#F8F2EA]">
+      <div className="min-h-screen overflow-x-clip bg-[#F8F2EA]">
         <SiteHeader />
         <main className="mx-auto max-w-6xl px-6 pt-34.5 pb-12 max-lg:pt-28">
           <Routes>

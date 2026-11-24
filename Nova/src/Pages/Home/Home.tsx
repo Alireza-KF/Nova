@@ -1,8 +1,14 @@
+import BestSellers from './Sections/BestSellers'
+import CollectionsSection from './Sections/CollectionsSection'
 import Hero from './Sections/Hero'
 
 function HomePage() {
   return (
-    <Hero />
+    <>
+      <Hero />
+      <BestSellers />
+      <CollectionsSection />
+    </>
   )
 }
 
