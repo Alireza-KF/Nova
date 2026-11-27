@@ -3,6 +3,7 @@ import { IconAdjustmentsHorizontal, IconChevronRight, IconX } from '@tabler/icon
 import { Link, useSearchParams } from 'react-router-dom'
 import ProductCard from '../../Components/ProductCard'
 import { products, type ProductSize } from '../../data/products'
+import { tw } from '../../styles/tw'
 
 const collections = [
   { value: 'minimal', label: 'Minimal' },
@@ -73,91 +74,136 @@ export default function ShopPage() {
   }
 
   const filters = (
-    <div className="filter-panel__content">
-      <div className="filter-panel__heading"><h2>Filters</h2><button className="filter-clear" onClick={clearFilters} type="button">Clear all</button></div>
-      <fieldset className="filter-group">
-        <legend>Collection</legend>
+    <div>
+      <div className={tw.filterPanelHeading}>
+        <h2 className={tw.filterHeading}>Filters</h2>
+        <button className={tw.filterClear} onClick={clearFilters} type="button">Clear all</button>
+      </div>
+      <fieldset className={tw.filterGroup}>
+        <legend className={tw.filterLegend}>Collection</legend>
         {collections.map((collection) => (
-          <label className="filter-option" key={collection.value}>
-            <input checked={selectedCollection === collection.value} name="collection" onChange={() => updateFilter(() => setSelectedCollection(collection.value))} type="radio" value={collection.value} />
+          <label className={tw.filterOption} key={collection.value}>
+            <input checked={selectedCollection === collection.value} className={tw.filterRadio} name="collection" onChange={() => updateFilter(() => setSelectedCollection(collection.value))} type="radio" value={collection.value} />
             <span>{collection.label}</span>
           </label>
         ))}
       </fieldset>
-      <fieldset className="filter-group">
-        <legend>Item Type</legend>
+      <fieldset className={tw.filterGroup}>
+        <legend className={tw.filterLegend}>Item Type</legend>
         {categories.map((category) => (
-          <label className="filter-option" key={category.value}>
-            <input checked={selectedCategory === category.value} name="category" onChange={() => updateFilter(() => setSelectedCategory(category.value))} type="radio" value={category.value} />
+          <label className={tw.filterOption} key={category.value}>
+            <input checked={selectedCategory === category.value} className={tw.filterRadio} name="category" onChange={() => updateFilter(() => setSelectedCategory(category.value))} type="radio" value={category.value} />
             <span>{category.label}</span>
           </label>
         ))}
       </fieldset>
-      <fieldset className="filter-group">
-        <legend>Size</legend>
-        <div className="filter-size-row">
+      <fieldset className={tw.filterGroup}>
+        <legend className={tw.filterLegend}>Size</legend>
+        <div className={tw.filterSizeRow}>
           {(['S', 'M', 'L'] as ProductSize[]).map((size) => (
-            <button aria-pressed={selectedSize === size} className={'size-chip' + (selectedSize === size ? ' is-selected' : '')} key={size} onClick={() => updateFilter(() => setSelectedSize(selectedSize === size ? 'all' : size))} type="button">{size}</button>
+            <button
+              aria-pressed={selectedSize === size}
+              className={[tw.sizeChip, selectedSize === size && tw.sizeChipActive].filter(Boolean).join(' ')}
+              key={size}
+              onClick={() => updateFilter(() => setSelectedSize(selectedSize === size ? 'all' : size))}
+              type="button"
+            >
+              {size}
+            </button>
           ))}
         </div>
       </fieldset>
-      <fieldset className="filter-group">
-        <legend>Color</legend>
-        <div className="filter-color-row">
+      <fieldset className={tw.filterGroup}>
+        <legend className={tw.filterLegend}>Color</legend>
+        <div className={tw.filterColorRow}>
           {colorChoices.map((color) => (
-            <button aria-label={color.label} aria-pressed={selectedColor === color.label} className={'filter-color' + (selectedColor === color.label ? ' is-selected' : '')} key={color.label} onClick={() => updateFilter(() => setSelectedColor(selectedColor === color.label ? 'all' : color.label))} style={{ backgroundColor: color.hex }} title={color.label} type="button" />
+            <button
+              aria-label={color.label}
+              aria-pressed={selectedColor === color.label}
+              className={[tw.filterColor, selectedColor === color.label && tw.filterColorActive].filter(Boolean).join(' ')}
+              key={color.label}
+              onClick={() => updateFilter(() => setSelectedColor(selectedColor === color.label ? 'all' : color.label))}
+              style={{ backgroundColor: color.hex }}
+              title={color.label}
+              type="button"
+            />
           ))}
         </div>
       </fieldset>
-      <fieldset className="filter-group filter-group--last">
-        <legend>Price Range</legend>
-        <div className="price-range-labels"><span>$20</span><span>{'$' + priceMax}</span></div>
-        <input aria-label="Maximum price" className="price-range" max="250" min="20" onChange={(event) => updateFilter(() => setPriceMax(Number(event.target.value)))} step="5" type="range" value={priceMax} />
+      <fieldset className={[tw.filterGroup, tw.filterGroupLast].join(' ')}>
+        <legend className={tw.filterLegend}>Price Range</legend>
+        <div className={tw.priceRangeLabels}><span>$20</span><span>{'$' + priceMax}</span></div>
+        <input aria-label="Maximum price" className={tw.priceRange} max="250" min="20" onChange={(event) => updateFilter(() => setPriceMax(Number(event.target.value)))} step="5" type="range" value={priceMax} />
       </fieldset>
     </div>
   )
 
   return (
-    <div className="page-width shop-page">
-      <div aria-label="Breadcrumb" className="breadcrumbs"><Link to="/">Home</Link><IconChevronRight size={14} /><span>Shop</span></div>
-      <div className="shop-layout">
-        <aside aria-label="Product filters" className="filter-sidebar">{filters}</aside>
-        <div className="shop-results">
-          <div className="shop-toolbar">
+    <div className={tw.page}>
+      <div aria-label="Breadcrumb" className={tw.breadcrumbs}>
+        <Link className={tw.breadcrumbLink} to="/">Home</Link><IconChevronRight size={14} /><span className={tw.breadcrumbCurrent}>Shop</span>
+      </div>
+      <div className={tw.shopLayout}>
+        <aside aria-label="Product filters" className={tw.filterSidebar}>{filters}</aside>
+        <div>
+          <div className={tw.shopToolbar}>
             <div>
-              <h1>All Products</h1>
-              <p>{searchTerm ? 'Search results for “' + searchParams.get('q') + '” · ' : ''}showing {filteredProducts.length === 0 ? 0 : (safePage - 1) * pageSize + 1}–{Math.min(safePage * pageSize, filteredProducts.length)} of {filteredProducts.length} products</p>
+              <h1 className={tw.shopTitle}>All Products</h1>
+              <p className={tw.shopCount}>{searchTerm ? 'Search results for “' + searchParams.get('q') + '” · ' : ''}showing {filteredProducts.length === 0 ? 0 : (safePage - 1) * pageSize + 1}–{Math.min(safePage * pageSize, filteredProducts.length)} of {filteredProducts.length} products</p>
             </div>
-            <div className="shop-toolbar__actions">
-              <button aria-expanded={filtersOpen} className="filter-mobile-trigger" onClick={() => setFiltersOpen(true)} type="button"><IconAdjustmentsHorizontal size={17} /> Filter</button>
-              <label className="sort-control"><span>Sort by</span><select onChange={(event) => setSortBy(event.target.value)} value={sortBy}><option value="newest">Newest</option><option value="price-low">Price: Low to High</option><option value="price-high">Price: High to Low</option><option value="name">Name</option></select></label>
+            <div className={tw.shopToolbarActions}>
+              <button aria-expanded={filtersOpen} className={tw.filterMobileTrigger} onClick={() => setFiltersOpen(true)} type="button"><IconAdjustmentsHorizontal size={17} /> Filter</button>
+              <label className={tw.sortControl}>
+                <span>Sort by</span>
+                <select className={tw.sortSelect} onChange={(event) => setSortBy(event.target.value)} value={sortBy}>
+                  <option value="newest">Newest</option>
+                  <option value="price-low">Price: Low to High</option>
+                  <option value="price-high">Price: High to Low</option>
+                  <option value="name">Name</option>
+                </select>
+              </label>
             </div>
           </div>
 
           {visibleProducts.length > 0 ? (
-            <div className="product-grid">{visibleProducts.map((product) => <ProductCard key={product.id} product={product} />)}</div>
+            <div className={tw.productGrid}>{visibleProducts.map((product) => <ProductCard key={product.id} product={product} />)}</div>
           ) : (
-            <div className="empty-state"><h2>No pieces found</h2><p>Try changing your search or clearing the filters.</p><button className="button button--rose" onClick={clearFilters} type="button">Clear filters</button></div>
+            <div className={tw.emptyState}>
+              <h2 className={tw.emptyTitle}>No pieces found</h2>
+              <p className={tw.emptyDescription}>Try changing your search or clearing the filters.</p>
+              <button className={[tw.button, tw.buttonRose].join(' ')} onClick={clearFilters} type="button">Clear filters</button>
+            </div>
           )}
 
           {filteredProducts.length > pageSize && (
-            <nav aria-label="Product pages" className="pagination">
-              <button aria-label="Previous page" disabled={safePage === 1} onClick={() => setPage(safePage - 1)} type="button">←</button>
+            <nav aria-label="Product pages" className={tw.pagination}>
+              <button aria-label="Previous page" className={tw.paginationButton} disabled={safePage === 1} onClick={() => setPage(safePage - 1)} type="button">←</button>
               {Array.from({ length: pageCount }, (_, index) => index + 1).map((pageNumber) => (
-                <button aria-current={safePage === pageNumber ? 'page' : undefined} className={safePage === pageNumber ? 'is-current' : ''} key={pageNumber} onClick={() => setPage(pageNumber)} type="button">{pageNumber}</button>
+                <button
+                  aria-current={safePage === pageNumber ? 'page' : undefined}
+                  className={[tw.paginationButton, safePage === pageNumber && tw.paginationActive].filter(Boolean).join(' ')}
+                  key={pageNumber}
+                  onClick={() => setPage(pageNumber)}
+                  type="button"
+                >
+                  {pageNumber}
+                </button>
               ))}
-              <button aria-label="Next page" disabled={safePage === pageCount} onClick={() => setPage(safePage + 1)} type="button">→</button>
+              <button aria-label="Next page" className={tw.paginationButton} disabled={safePage === pageCount} onClick={() => setPage(safePage + 1)} type="button">→</button>
             </nav>
           )}
         </div>
       </div>
 
       {filtersOpen && (
-        <div className="filter-drawer-backdrop" onClick={() => setFiltersOpen(false)} role="presentation">
-          <section aria-label="Product filters" aria-modal="true" className="filter-drawer" onClick={(event) => event.stopPropagation()} role="dialog">
-            <div className="filter-drawer__header"><h2>Filters</h2><button aria-label="Close filters" className="icon-button" onClick={() => setFiltersOpen(false)} type="button"><IconX size={20} /></button></div>
+        <div className={tw.filterBackdrop} onClick={() => setFiltersOpen(false)} role="presentation">
+          <section aria-label="Product filters" aria-modal="true" className={tw.filterDrawer} onClick={(event) => event.stopPropagation()} role="dialog">
+            <div className={tw.filterDrawerHeader}>
+              <h2 className={tw.filterHeading}>Filters</h2>
+              <button aria-label="Close filters" className={tw.iconButton} onClick={() => setFiltersOpen(false)} type="button"><IconX size={20} /></button>
+            </div>
             {filters}
-            <button className="button button--rose filter-drawer__apply" onClick={() => setFiltersOpen(false)} type="button">Show {filteredProducts.length} pieces</button>
+            <button className={[tw.button, tw.buttonRose, tw.filterDrawerApply].join(' ')} onClick={() => setFiltersOpen(false)} type="button">Show {filteredProducts.length} pieces</button>
           </section>
         </div>
       )}

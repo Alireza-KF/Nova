@@ -10,6 +10,7 @@ import ShopPage from './Pages/Shop/Shop'
 import WishlistPage from './Pages/Wishlist/Wishlist'
 import { StoreProvider } from './store/StoreContext'
 import './index.css'
+import { tw } from './styles/tw'
 
 function App() {
   const basename = import.meta.env.BASE_URL.replace(/\/$/, '') || '/'
@@ -17,9 +18,9 @@ function App() {
   return (
     <BrowserRouter basename={basename}>
       <StoreProvider>
-        <div className="app-shell">
+        <div className={tw.app}>
           <SiteHeader />
-          <main className="site-main" id="main-content">
+          <main className={tw.main} id="main-content">
             <Routes>
               <Route element={<HomePage />} path="/" />
               <Route element={<ShopPage />} path="/shop" />
