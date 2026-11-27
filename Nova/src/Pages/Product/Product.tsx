@@ -25,12 +25,13 @@ export default function ProductPage() {
     return <div className="page-width empty-state product-not-found"><h1>We could not find that piece.</h1><Link className="button button--rose" to="/shop">Back to Shop</Link></div>
   }
 
+  const currentProduct = product
   const gallery = [product.image, ...relatedImages.filter((image) => image !== product.image)]
   const isSaved = wishlist.includes(product.id)
   const relatedProducts = products.filter((item) => item.category === product.category && item.id !== product.id).slice(0, 3)
 
   function addProduct() {
-    addToCart(product.id, selectedSize, selectedColor, quantity)
+    addToCart(currentProduct.id, selectedSize, selectedColor, quantity)
     setAddedMessage('Added to your bag')
   }
 
