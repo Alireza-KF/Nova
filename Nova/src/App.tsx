@@ -1,29 +1,38 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import SiteFooter from './Components/SiteFooter'
+import SiteHeader from './Components/SiteHeader'
 import CartPage from './Pages/Cart/Cart'
 import CollectionPage from './Pages/Collection/Collection'
 import HomePage from './Pages/Home/Home'
 import NotFoundPage from './Pages/NotFound/NotFound'
 import ProductPage from './Pages/Product/Product'
 import ShopPage from './Pages/Shop/Shop'
-import SiteHeader from './Components/SiteHeader'
+import WishlistPage from './Pages/Wishlist/Wishlist'
+import { StoreProvider } from './store/StoreContext'
 import './index.css'
 
 function App() {
+  const basename = import.meta.env.BASE_URL.replace(/\/$/, '') || '/'
+
   return (
-    <BrowserRouter>
-      <div className="min-h-screen overflow-x-clip bg-[#F8F2EA]">
-        <SiteHeader />
-        <main className="mx-auto max-w-6xl px-6 pt-34.5 pb-12 max-lg:pt-28">
-          <Routes>
-            <Route element={<HomePage />} path="/" />
-            <Route element={<ShopPage />} path="/shop" />
-            <Route element={<CollectionPage />} path="/collection" />
-            <Route element={<ProductPage />} path="/product/:productId" />
-            <Route element={<CartPage />} path="/cart" />
-            <Route element={<NotFoundPage />} path="*" />
-          </Routes>
-        </main>
-      </div>
+    <BrowserRouter basename={basename}>
+      <StoreProvider>
+        <div className="app-shell">
+          <SiteHeader />
+          <main className="site-main" id="main-content">
+            <Routes>
+              <Route element={<HomePage />} path="/" />
+              <Route element={<ShopPage />} path="/shop" />
+              <Route element={<CollectionPage />} path="/collection" />
+              <Route element={<ProductPage />} path="/product/:productId" />
+              <Route element={<CartPage />} path="/cart" />
+              <Route element={<WishlistPage />} path="/wishlist" />
+              <Route element={<NotFoundPage />} path="*" />
+            </Routes>
+          </main>
+          <SiteFooter />
+        </div>
+      </StoreProvider>
     </BrowserRouter>
   )
 }

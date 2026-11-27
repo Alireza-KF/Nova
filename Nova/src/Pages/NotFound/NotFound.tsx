@@ -1,14 +1,12 @@
 import { Link } from 'react-router-dom'
 
-function NotFoundPage() {
+export default function NotFoundPage() {
   return (
-    <section className="space-y-4">
-      <h1 className="text-3xl font-bold tracking-tight text-slate-900">Page not found</h1>
-      <Link className="font-medium text-indigo-600 hover:text-indigo-800" to="/">
-        Return home
-      </Link>
+    <section className="page-width empty-state not-found-page">
+      <span className="eyebrow">A LITTLE DETOUR</span>
+      <h1>That page has wandered off.</h1>
+      <p>The link may be old, or the page may have moved.</p>
+      <Link className="button button--rose" to="/">Return home</Link>
     </section>
   )
 }
-
-export default NotFoundPage
