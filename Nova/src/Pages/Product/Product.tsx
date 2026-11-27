@@ -4,8 +4,9 @@ import { Link, useParams } from 'react-router-dom'
 import ProductCard from '../../Components/ProductCard'
 import { formatPrice, getProduct, products, type ProductSize } from '../../data/products'
 import { useStore } from '../../store/StoreContext'
+import { asset } from '../../utils/assets'
 
-const relatedImages = ['/Images/Design/ecdd8.png', '/Images/Design/65c0f.png', '/Images/Design/5eb79.png']
+const relatedImages = [asset('/Images/Design/ecdd8.png'), asset('/Images/Design/65c0f.png'), asset('/Images/Design/5eb79.png')]
 
 export default function ProductPage() {
   const { productId } = useParams()

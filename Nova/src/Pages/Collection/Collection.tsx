@@ -3,6 +3,7 @@ import { IconChevronRight } from '@tabler/icons-react'
 import { Link, useSearchParams } from 'react-router-dom'
 import ProductCard from '../../Components/ProductCard'
 import { products } from '../../data/products'
+import { asset } from '../../utils/assets'
 
 const categoryLabels: Record<string, string> = { tops: 'Tops', dresses: 'Dresses', bottoms: 'Bottoms', outerwear: 'Outerwear' }
 
@@ -23,7 +24,7 @@ export default function CollectionPage() {
     <div className="page-width collection-page">
       <div aria-label="Breadcrumb" className="breadcrumbs"><Link to="/">Home</Link><IconChevronRight size={14} /><span>Collection</span></div>
       <section aria-label={title + ' collection'} className="collection-hero">
-        <img alt="" fetchPriority="high" src="/Images/Design/a287d.png" />
+        <img alt="" fetchPriority="high" src={asset('/Images/Design/a287d.png')} />
         <div className="collection-hero__content"><span className="eyebrow">THE NOVA COLLECTION</span><h1>{title}</h1><p>Effortless pieces for every mood,<br />from everyday to special moments.</p></div>
       </section>
       <div className="collection-toolbar">

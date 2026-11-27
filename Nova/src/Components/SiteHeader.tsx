@@ -8,6 +8,7 @@ import {
 } from '@tabler/icons-react'
 import { Link, NavLink, useNavigate } from 'react-router-dom'
 import { useStore } from '../store/StoreContext'
+import { asset } from '../utils/assets'
 
 const desktopLinks = [
   { to: '/', label: 'Home', end: true },
@@ -39,7 +40,7 @@ export default function SiteHeader() {
     <div className="site-header-shell">
       <header className="site-header">
         <Link aria-label="NOVA home" className="site-logo" onClick={closeMenus} to="/">
-          <img alt="NOVA" src="/Images/Header/logo.png" />
+          <img alt="NOVA" src={asset('/Images/Header/logo.png')} />
         </Link>
 
         <nav aria-label="Main navigation" className="site-nav site-nav--desktop">

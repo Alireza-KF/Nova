@@ -1,12 +1,13 @@
 import { IconArrowUpRight, IconBrandInstagram, IconMail, IconRefresh } from '@tabler/icons-react'
 import { Link } from 'react-router-dom'
+import { asset } from '../utils/assets'
 
 export default function SiteFooter() {
   return (
     <footer className="site-footer page-width" id="contact">
       <div className="site-footer__brand">
         <Link aria-label="NOVA home" to="/">
-          <img alt="NOVA" className="site-footer__logo" src="/Images/Header/logo.png" />
+          <img alt="NOVA" className="site-footer__logo" src={asset('/Images/Header/logo.png')} />
         </Link>
         <p>Minimal pieces<br />for everyday moments.</p>
       </div>

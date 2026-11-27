@@ -5,12 +5,13 @@ import 'keen-slider/keen-slider.min.css'
 import { Link } from 'react-router-dom'
 import ProductCard from '../../Components/ProductCard'
 import { featuredProducts } from '../../data/products'
+import { asset } from '../../utils/assets'
 
 const collectionCards = [
-  { name: 'Tops', image: '/Images/Collection/tops.png', category: 'tops', description: 'Everyday essentials' },
-  { name: 'Dresses', image: '/Images/Collection/dresses.png', category: 'dresses', description: 'Effortless silhouettes' },
-  { name: 'Bottoms', image: '/Images/Collection/bottoms.png', category: 'bottoms', description: 'Easy movement' },
-  { name: 'Outerwear', image: '/Images/Collection/outerwear.png', category: 'outerwear', description: 'Layers with purpose' },
+  { name: 'Tops', image: asset('/Images/Collection/tops.png'), category: 'tops', description: 'Everyday essentials' },
+  { name: 'Dresses', image: asset('/Images/Collection/dresses.png'), category: 'dresses', description: 'Effortless silhouettes' },
+  { name: 'Bottoms', image: asset('/Images/Collection/bottoms.png'), category: 'bottoms', description: 'Easy movement' },
+  { name: 'Outerwear', image: asset('/Images/Collection/outerwear.png'), category: 'outerwear', description: 'Layers with purpose' },
 ]
 
 const storeFeatures = [
@@ -45,7 +46,7 @@ export default function HomePage() {
     <div className="home-page">
       <section aria-labelledby="hero-title" className="home-hero page-width">
         <div className="home-hero__image-frame">
-          <img alt="Model wearing a soft neutral everyday look" className="home-hero__image" fetchPriority="high" src="/Images/Home/hero-model.png" />
+          <img alt="Model wearing a soft neutral everyday look" className="home-hero__image" fetchPriority="high" src={asset('/Images/Home/hero-model.png')} />
         </div>
         <div className="home-hero__content">
           <span className="eyebrow">THE NOVA EDIT · NEW SEASON</span>
@@ -113,7 +114,7 @@ export default function HomePage() {
 
       <section aria-labelledby="about-title" className="page-width about-story" id="about">
         <div className="about-story__image">
-          <img alt="NOVA's neutral, timeless fashion direction" loading="lazy" src="/Images/Home/hero-model.png" />
+          <img alt="NOVA's neutral, timeless fashion direction" loading="lazy" src={asset('/Images/Home/hero-model.png')} />
           <span className="about-story__seal">N<br />O<br />V<br />A</span>
         </div>
         <div className="about-story__copy">
@@ -125,7 +126,7 @@ export default function HomePage() {
       </section>
 
       <section aria-labelledby="newsletter-title" className="page-width newsletter">
-        <div className="newsletter__art"><img alt="" loading="lazy" src="/Images/Design/06891.png" /></div>
+        <div className="newsletter__art"><img alt="" loading="lazy" src={asset('/Images/Design/06891.png')} /></div>
         <div className="newsletter__content">
           <span className="eyebrow">NEWSLETTER</span>
           <h2 id="newsletter-title">Stay connected with NOVA</h2>

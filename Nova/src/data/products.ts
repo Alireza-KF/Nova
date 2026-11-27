@@ -1,3 +1,5 @@
+import { asset } from '../utils/assets'
+
 export type ProductSize = 'S' | 'M' | 'L'
 
 export type ProductColor = {
@@ -34,7 +36,7 @@ export const products: Product[] = [
     category: 'tops',
     collection: 'comfortable',
     price: 59,
-    image: '/Images/Home/BestSellers/soft-knit-sweater.png',
+    image: asset('/Images/Home/BestSellers/soft-knit-sweater.png'),
     colors: [
       { label: 'Blush', hex: '#c9828b' },
       { label: 'Oat', hex: '#d8c8ba' },
@@ -51,7 +53,7 @@ export const products: Product[] = [
     category: 'tops',
     collection: 'minimal',
     price: 64,
-    image: '/Images/Design/f3a0a.png',
+    image: asset('/Images/Design/f3a0a.png'),
     colors: neutrals,
     sizes,
     description: 'An easy linen layer with a relaxed silhouette, made for effortless everyday styling.',
@@ -64,7 +66,7 @@ export const products: Product[] = [
     category: 'outerwear',
     collection: 'modern',
     price: 84,
-    image: '/Images/Design/8e382.png',
+    image: asset('/Images/Design/8e382.png'),
     colors: neutrals,
     sizes,
     description: 'A clean, softly structured blazer that brings a polished finish to everyday looks.',
@@ -77,7 +79,7 @@ export const products: Product[] = [
     category: 'tops',
     collection: 'comfortable',
     price: 84,
-    image: '/Images/Design/7659c.png',
+    image: asset('/Images/Design/7659c.png'),
     colors: [
       { label: 'Blue', hex: '#9eabc4' },
       { label: 'Ivory', hex: '#e8dfd3' },
@@ -94,7 +96,7 @@ export const products: Product[] = [
     category: 'bottoms',
     collection: 'modern',
     price: 72,
-    image: '/Images/Design/eaed6.png',
+    image: asset('/Images/Design/eaed6.png'),
     colors: [
       { label: 'Blush', hex: '#c9828b' },
       { label: 'Stone', hex: '#c7b9aa' },
@@ -111,7 +113,7 @@ export const products: Product[] = [
     category: 'bottoms',
     collection: 'comfortable',
     price: 76,
-    image: '/Images/Design/78640.png',
+    image: asset('/Images/Design/78640.png'),
     colors: neutrals,
     sizes,
     description: 'Comfort-first wide-leg trousers with practical details and a clean, modern profile.',
@@ -124,7 +126,7 @@ export const products: Product[] = [
     category: 'tops',
     collection: 'minimal',
     price: 39,
-    image: '/Images/Design/ecdd8.png',
+    image: asset('/Images/Design/ecdd8.png'),
     colors: [
       { label: 'Ivory', hex: '#e8dfd3' },
       { label: 'Taupe', hex: '#9b8574' },
@@ -140,7 +142,7 @@ export const products: Product[] = [
     category: 'tops',
     collection: 'modern',
     price: 49,
-    image: '/Images/Design/65c0f.png',
+    image: asset('/Images/Design/65c0f.png'),
     colors: [
       { label: 'Ivory', hex: '#eee8df' },
       { label: 'Blue', hex: '#7187c0' },
@@ -156,7 +158,7 @@ export const products: Product[] = [
     category: 'tops',
     collection: 'minimal',
     price: 45,
-    image: '/Images/Design/c5115.png',
+    image: asset('/Images/Design/c5115.png'),
     colors: [
       { label: 'Blush', hex: '#d9aaa7' },
       { label: 'Lilac', hex: '#9542b9' },
@@ -172,7 +174,7 @@ export const products: Product[] = [
     category: 'tops',
     collection: 'minimal',
     price: 42,
-    image: '/Images/Design/a2abb.png',
+    image: asset('/Images/Design/a2abb.png'),
     colors: [
       { label: 'Black', hex: '#252525' },
       { label: 'Oat', hex: '#d8c8ba' },
@@ -188,7 +190,7 @@ export const products: Product[] = [
     category: 'tops',
     collection: 'modern',
     price: 45,
-    image: '/Images/Design/140c8.png',
+    image: asset('/Images/Design/140c8.png'),
     colors: [
       { label: 'Ivory', hex: '#eee8df' },
       { label: 'Taupe', hex: '#9b8574' },
@@ -204,7 +206,7 @@ export const products: Product[] = [
     category: 'tops',
     collection: 'comfortable',
     price: 55,
-    image: '/Images/Design/9e469.png',
+    image: asset('/Images/Design/9e469.png'),
     colors: [
       { label: 'Stone', hex: '#a69a8c' },
       { label: 'Grey', hex: '#a9a9a9' },
@@ -220,7 +222,7 @@ export const products: Product[] = [
     category: 'tops',
     collection: 'comfortable',
     price: 59,
-    image: '/Images/Design/8673d.png',
+    image: asset('/Images/Design/8673d.png'),
     colors: [
       { label: 'Cream', hex: '#e9dfd2' },
       { label: 'Sage', hex: '#a8ad67' },
@@ -236,7 +238,7 @@ export const products: Product[] = [
     category: 'tops',
     collection: 'modern',
     price: 68,
-    image: '/Images/Home/BestSellers/satin-midi-dress.png',
+    image: asset('/Images/Home/BestSellers/satin-midi-dress.png'),
     colors: [
       { label: 'Blue', hex: '#9eabc4' },
       { label: 'Ivory', hex: '#e8dfd3' },
@@ -245,6 +247,22 @@ export const products: Product[] = [
     sizes,
     description: 'A minimal satin-inspired piece with a smooth finish and a simple, elegant shape.',
     details: ['Smooth satin-touch finish', 'Clean bandeau neckline', 'Designed for occasion styling'],
+  },
+  {
+    id: 'satin-midi-dress',
+    name: 'Satin Midi Dress',
+    category: 'dresses',
+    collection: 'modern',
+    price: 72,
+    image: asset('/Images/Home/BestSellers/satin-midi-dress.png'),
+    colors: [
+      { label: 'Blush', hex: '#c9828b' },
+      { label: 'Ivory', hex: '#e8dfd3' },
+      { label: 'Black', hex: '#252525' },
+    ],
+    sizes,
+    description: 'A fluid satin midi dress with a clean neckline and an elegant, easy silhouette.',
+    details: ['Smooth satin-touch finish', 'Midi length', 'Designed for day-to-evening wear'],
   },
 ]
 
