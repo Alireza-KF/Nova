@@ -1,7 +1,6 @@
 import { useState, type FormEvent } from 'react'
 import { IconArrowRight, IconArrowUpRight, IconDiamond, IconHeart, IconLeaf, IconRefresh } from '@tabler/icons-react'
 import { useKeenSlider } from 'keen-slider/react'
-import 'keen-slider/keen-slider.min.css'
 import { Link } from 'react-router-dom'
 import ProductCard from '../../Components/ProductCard'
 import { featuredProducts } from '../../data/products'

@@ -1,0 +1,126 @@
+name: Build and deploy NOVA
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "Nova/**"
+      - ".github/workflows/deploy-nova.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: nova-pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: Nova/package-lock.json
+
+      - name: Download Figma product imagery
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p Nova/public/Images/Design
+          download_asset() {
+            local destination="$1"
+            local source="$2"
+            if [[ ! -s "$destination" ]]; then
+              echo "Downloading ${destination}"
+              curl --fail --location --silent --show-error --retry 3 "$source" --output "$destination"
+            fi
+          }
+          SHOP_ASSETS="https://www.figma.com/api/mcp/asset/6870fa54-9d2e-4795-8fa8-05035033c49d"
+          COLLECTION_ASSETS="https://www.figma.com/api/mcp/asset/00a60841-51b3-4925-abee-5ac03a38ebeb"
+          CART_ASSETS="https://www.figma.com/api/mcp/asset/4f0f4890-3004-4d7d-96bc-9343f969e063"
+          HOME_ASSETS="https://www.figma.com/api/mcp/asset/dc128a51-5293-4f3c-bcaa-704fbefd0f96"
+          download_asset Nova/public/Images/Design/5eb79.png "$SHOP_ASSETS/5eb79.png"
+          download_asset Nova/public/Images/Design/f3a0a.png "$SHOP_ASSETS/f3a0a.png"
+          download_asset Nova/public/Images/Design/8e382.png "$SHOP_ASSETS/8e382.png"
+          download_asset Nova/public/Images/Design/7659c.png "$SHOP_ASSETS/7659c.png"
+          download_asset Nova/public/Images/Design/eaed6.png "$SHOP_ASSETS/eaed6.png"
+          download_asset Nova/public/Images/Design/78640.png "$SHOP_ASSETS/78640.png"
+          download_asset Nova/public/Images/Design/a287d.png "$COLLECTION_ASSETS/a287d.png"
+          download_asset Nova/public/Images/Design/65c0f.png "$COLLECTION_ASSETS/65c0f.png"
+          download_asset Nova/public/Images/Design/a2abb.png "$COLLECTION_ASSETS/a2abb.png"
+          download_asset Nova/public/Images/Design/140c8.png "$COLLECTION_ASSETS/140c8.png"
+          download_asset Nova/public/Images/Design/9e469.png "$COLLECTION_ASSETS/9e469.png"
+          download_asset Nova/public/Images/Design/ecdd8.png "$COLLECTION_ASSETS/ecdd8.png"
+          download_asset Nova/public/Images/Design/c5115.png "$COLLECTION_ASSETS/c5115.png"
+          download_asset Nova/public/Images/Design/8673d.png "$COLLECTION_ASSETS/8673d.png"
+          download_asset Nova/public/Images/Design/d44bd.png "$CART_ASSETS/d44bd.png"
+          download_asset Nova/public/Images/Design/06891.png "$HOME_ASSETS/06891.png"
+
+      - name: Resolve dependencies and lockfile
+        working-directory: Nova
+        run: npm install --package-lock-only --ignore-scripts --no-audit --no-fund
+
+      - name: Commit generated assets and lockfile
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add Nova/package-lock.json Nova/public/Images/Design
+          if ! git diff --cached --quiet; then
+            git commit -m "build: add design exports and lock dependencies"
+            git push origin HEAD:main
+          fi
+
+      - name: Install locked dependencies
+        working-directory: Nova
+        run: npm ci --no-audit --no-fund
+
+      - name: Lint
+        working-directory: Nova
+        run: npm run lint
+
+      - name: Type-check and production build
+        working-directory: Nova
+        run: npm run build
+
+      - name: Prepare SPA fallback
+        working-directory: Nova
+        run: |
+          cp dist/index.html dist/404.html
+          touch dist/.nojekyll
+
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+        with:
+          enablement: true
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: Nova/dist
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    permissions:
+      pages: write
+      id-token: write
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
